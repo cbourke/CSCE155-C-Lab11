@@ -4,7 +4,7 @@
 
 #include "rss.h"
 
-// implement these functions
+// TODO: implement these functions
 
 Rss * createEmptyRss() {
 }

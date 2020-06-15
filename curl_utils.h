@@ -1,4 +1,9 @@
 
+/**
+ * string structure used to keep track of the size
+ * of the allocated space.  Used by the curl library
+ * as a buffer.
+ */
 struct string {
   char *ptr;
   size_t len;

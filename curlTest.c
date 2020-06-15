@@ -1,5 +1,11 @@
-#include <stdio.h>
+/**
+ * A stand alone test utility for the 
+ * libcurl library.  Provide a URL as a
+ * command line argument and it will print
+ * the response.
+ */
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "curl_utils.h"
 

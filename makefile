@@ -1,3 +1,6 @@
+#
+# makefile for the RSS lab
+# 
 
 # compile with gcc
 CC = gcc -Wall
