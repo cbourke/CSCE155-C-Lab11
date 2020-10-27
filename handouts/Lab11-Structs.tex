@@ -241,11 +241,10 @@ structure that models the essential parts of an RSS item.  Your
 structure will need to support an RSS item's title, link, description, 
 and publication date.  
 
-As a first attempt you can treat the publication date as a string, 
-but ultimately you should use a \mintinline{c}{tm} structure similar 
-to the \mintinline{c}{Student} example.  This structure has several 
-fields that give you access to the year, month, date, hour, minute, 
-etc.  For full documentation, see the following: \url{http://pubs.opengroup.org/onlinepubs/7908799/xsh/time.h.html}
+To keep things simple, we recommend that you represent the date using
+a string.  If you would like to try using the \mintinline{c}{tm} structure 
+defined in the time library, you may find the following documentation 
+useful: \url{http://pubs.opengroup.org/onlinepubs/7908799/xsh/time.h.html}
 
 \subsubsection*{Instructions}
 
