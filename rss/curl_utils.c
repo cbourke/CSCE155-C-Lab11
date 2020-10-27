@@ -44,7 +44,10 @@ char *getContent(const char *url) {
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
     res = curl_easy_perform(curl);
-
+    if(res != CURLE_OK) {
+      fprintf(stderr, "cURL encountered an error: %s\n", curl_easy_strerror(res));
+    }
+    
     result = (char *)malloc(sizeof(char) * (strlen(s.ptr) + 1));
     strcpy(result, s.ptr);
     free(s.ptr);

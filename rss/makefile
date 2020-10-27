@@ -3,7 +3,7 @@
 # 
 
 # compile with gcc
-CC = gcc -Wall
+CC = gcc -std=gnu99 -Wall
 
 # XML libraries
 XML_INCLUDE = -I/usr/include/libxml2

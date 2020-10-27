@@ -17,22 +17,22 @@ typedef struct {
 } RssService;
 
 static const RssService cseBitsAndBytes = {
-    "CSE Bits and Bytes", "https://newsroom.unl.edu/announce/cse/?format=rss",
+    "CSE Bits and Bytes", 
+    "https://newsroom.unl.edu/announce/cse/?format=rss",
     RSS2};
 
 static const RssService huskerNews = {
     "Husker Sports News",
-    "https://huskers.com/rss.aspx", RSS2};
+    "https://huskers.com/rss.aspx", 
+    RSS2};
 
 /**
- * An RSS feed of Reddit's front page.  Be aware: reddit
- * forces an SSL connection, so we've been forced to use a
- * non-SSL proxy here.  Depending on the fickleness of your
- * instructor, this may or may not be working.
+ * An RSS feed of Reddit's front page.  
  */
 static const RssService reddit = {
-  "Reddit", "https://www.reddit.com/.rss",
-    ATOM1};
+  "Reddit", 
+  "https://www.reddit.com/.rss",
+  ATOM1};
 
 /**
  * A utility function to parse an XML feed from an RSS feed

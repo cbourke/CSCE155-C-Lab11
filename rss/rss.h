@@ -17,7 +17,14 @@ Rss* createRss(const char* title, const char* link, const char* date,
                const char* description);
 
 /**
+ * An initialization function to initialize an RSS feed with the
+ * given values.
+ */
+void initRss(Rss *feed, const char* title, const char* link, const char* date,
+               const char* description);
+
+/**
  * A function that prints the given Rss structure
  * to the standard output.
  */
-void printRss(Rss* item);
+void printRss(const Rss* item);

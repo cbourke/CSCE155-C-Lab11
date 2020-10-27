@@ -9,6 +9,10 @@
 #include "rss_utils.h"
 #include "rss.h"
 
+/**
+ * Main driver program for the RSS feed demo.  You can provide
+ * command line arguments 1 - 3 to connect to different feeds.
+ */
 int main(int argc, char **argv) {
   // default: UNL News
   RssService s = cseBitsAndBytes;
