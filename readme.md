@@ -1,11 +1,11 @@
 # Computer Science I
 ## Lab 11.0 - Encapsulation & Structures
 
-This is a lab used in Computer Science I (CSCE 155E, CSCE 155H) in the 
-[Department of Computer Science & Engineering](https://cse.unl.edu) at the 
+This is a lab used in Computer Science I (CSCE 155E, CSCE 155H) in the
+[Department of Computer Science & Engineering](https://cse.unl.edu) at the
 [University of Nebraska-Lincoln](https://unl.edu).
 
-## 1. Overview 
+## 1. Overview
 
 ### Prior to Lab
 
@@ -54,7 +54,6 @@ negatively impact your ability to collaborate and work with others which
 may mean that you will not be able to complete the lab.
 
 ### Lab Objectives & Topics
-=======================
 
 At the end of this lab you should be familiar with the following
 
@@ -121,13 +120,13 @@ The C programming language provides a mechanism to achieve encapsulation
 using structures. Structures are user defined types that have one or
 more data fields–variables which have a type and a name. To access the
 member fields of a structure you can use the dot operator; example: .
-`student.firstName`.  However, when you have a reference (pointer) to a 
+`student.firstName`.  However, when you have a reference (pointer) to a
 structure, you need to use the arrow operator: `student->firstName`.
 
 ### 2.3 RSS Client Background
 
 You have been provided with an incomplete RSS client written in C. The
-client uses the cURL library (Client URL) library to make an HTTP 
+client uses the cURL library (Client URL) library to make an HTTP
 (or a secure HTTPS) connection using a URL (a web address) to an RSS
 server.  The server responds with a stream of data that
 the client reads into a buffer. This data stream can, in general, be any
@@ -144,26 +143,21 @@ library (libxml2, an XML parser and toolkit for Gnome).
 Clone the project code for this lab from GitHub by using the following
 URL: <https://github.com/cbourke/CSCE155-C-Lab11>.
 
-If you are using the CS50 IDE you may need to install the curl
-development library before compiling this lab:
-
-`sudo apt-get install libcurl4-gnutls-dev`
-
 ### 3.2 `Student` Structure Demo
 
-To demonstrate how to define and use a structure, we have provided a 
-completed program (see the files in the `studentDemo` directory) 
-with a full structure definition to model a student. 
-Several functions have been implemented to assist in the construction 
-and printing of this structure. In particular there are two "factory" 
-functions that can be used to help in the construction of an individual 
-structure. The factory function takes the appropriate parameters, allocates 
-memory for a new `Student` instance and sets each field of the structure 
-appropriately. In the case of strings, `malloc` is used to create enough 
-space and the string is then copied. The `birthDate` is handled specially: 
-it parses the date string and creates a `struct tm` which is a *time* structure 
-defined by the time library (`time.h`). Finally, a pointer to the new 
-`Student` structure is returned. There is also a print function that takes 
+To demonstrate how to define and use a structure, we have provided a
+completed program (see the files in the `studentDemo` directory)
+with a full structure definition to model a student.
+Several functions have been implemented to assist in the construction
+and printing of this structure. In particular there are two "factory"
+functions that can be used to help in the construction of an individual
+structure. The factory function takes the appropriate parameters, allocates
+memory for a new `Student` instance and sets each field of the structure
+appropriately. In the case of strings, `malloc` is used to create enough
+space and the string is then copied. The `birthDate` is handled specially:
+it parses the date string and creates a `struct tm` which is a *time* structure
+defined by the time library (`time.h`). Finally, a pointer to the new
+`Student` structure is returned. There is also a print function that takes
 a student (by reference) and prints it out to the standard output.
 
 #### Instructions
@@ -179,7 +173,7 @@ a student (by reference) and prints it out to the standard output.
     gcc -c -std=gnu89 student.c
     gcc student.o studentDemo.c
     ```
-    Run your program and observe the results. Refer back to this 
+    Run your program and observe the results. Refer back to this
     program in the next activity as needed.
 
 ### 3.3 Completing the RSS Client
@@ -188,14 +182,14 @@ In this activity, you will complete the RSS Client that connects to a
 UNL RSS feed, processes the XML data and outputs the results to the
 standard output. Most of the client has been completed for you. You just
 need to complete the design and implementation of a C structure that
-models the essential parts of an RSS "item" (usually an individual 
-news story). Your structure will need to support an RSS item's title, 
+models the essential parts of an RSS "item" (usually an individual
+news story). Your structure will need to support an RSS item's title,
 link, description, and publication date.
 
 To keep things simple, we recommend that you represent the date using a
 string. If you would like to try using the structure defined in the time
 library, you may find the following documentation useful:
-<http://pubs.opengroup.org/onlinepubs/7908799/xsh/time.h.html> 
+<http://pubs.opengroup.org/onlinepubs/7908799/xsh/time.h.html>
 <https://pubs.opengroup.org/onlinepubs/7908799/xsh/strptime.html>
 
 #### Instructions
@@ -204,9 +198,9 @@ library, you may find the following documentation useful:
     files to do most of the work for you.  To compile it, we have provided
     a `makefile`.  Simply type `make` and it produces an executable called
     `runRss`.
-    
+
 2.  Examine the `main` function in `runRss.c` and observe how to use
-    the program to connect to three different RSS feeds using 
+    the program to connect to three different RSS feeds using
     command line arguments.
 
 3.  Design and implement the RSS structure in the `rss.h` header file
@@ -220,7 +214,7 @@ library, you may find the following documentation useful:
 
     - `rss.h`
     - `rss.c`
-    
+
     through the webhandin (<https://cse-apps.unl.edu/handin>) using your
     cse login and password.
 
@@ -250,5 +244,3 @@ library, you may find the following documentation useful:
     items in the XML and use it to instead dynamically allocate an RSS
     array of a size exactly equal to the number of item elements in the
     XML file.
-
-
