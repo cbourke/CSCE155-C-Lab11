@@ -1,4 +1,7 @@
 
+/**
+ * TODO: provide documentation for your structure
+ */
 typedef struct {
   // TODO: define your structure here
 } Rss;
@@ -13,15 +16,20 @@ Rss* createEmptyRss();
  * A factory function to create an Rss structure
  * with the given values
  */
-Rss* createRss(const char* title, const char* link, const char* date,
+Rss* createRss(const char* title,
+               const char* link,
+               const char* date,
                const char* description);
 
 /**
  * An initialization function to initialize an RSS feed with the
  * given values.
  */
-void initRss(Rss *feed, const char* title, const char* link, const char* date,
-               const char* description);
+void initRss(Rss *feed,
+             const char* title,
+             const char* link,
+             const char* date,
+             const char* description);
 
 /**
  * A function that prints the given Rss structure
