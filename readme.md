@@ -1,24 +1,23 @@
 # Computer Science I
 ## Lab 11.0 - Encapsulation & Structures
+[School of Computing](https://computing.unl.edu)  
+[College of Engineering](https://engineering.unl.edu/)  
+[University of Nebraska-Lincoln](https://unl.edu)  
+[University of Nebraska-Omaha](https://unomaha.edu)  
 
-This is a lab used in Computer Science I (CSCE 155E, CSCE 155H) in the
-[Department of Computer Science & Engineering](https://cse.unl.edu) at the
-[University of Nebraska-Lincoln](https://unl.edu).
+This lab introduces encapsulation and structures in C.
 
-## 1. Overview
+## Prior to Lab
 
-### Prior to Lab
+* Read and familiarize yourself with this handout.
+* Read the required chapters(s) of the textbook as
+  outlined in the course schedule.
 
-Before attending this lab:
+In addition, you may want to:
 
-1.  Read and familiarize yourself with this handout.
-
-2.  Read Chapters 10 and 23 of the [Computer Science
-    I](http://cse.unl.edu/~cbourke/ComputerScienceOne.pdf) textbook
-
-3.  Watch Videos 11.1 thru 11.3 of the [Computer Science
-    I](https://www.youtube.com/playlist?list=PL4IH6CVPpTZVkiEnCEOdGbYsFEdtKc5Bx)
-    video series
+* Read Chapters 10 and 23 of the [Computer Science I](http://cse.unl.edu/~cbourke/ComputerScienceOne.pdf) textbook
+* Watch Videos 11.1 thru 11.3 of the [Computer Science I](https://www.youtube.com/playlist?list=PL4IH6CVPpTZVkiEnCEOdGbYsFEdtKc5Bx)
+  video series
 
 ### Peer Programming Pair-Up
 
@@ -143,6 +142,11 @@ library (libxml2, an XML parser and toolkit for Gnome).
 Clone the project code for this lab from GitHub by using the following
 URL: <https://github.com/cbourke/CSCE155-C-Lab11>.
 
+In addition, you may need to install some libraries to complete this
+activity.  Run the following command:
+
+`sudo apt-get install libcurl4-gnutls-dev`
+
 ### 3.2 `Student` Structure Demo
 
 To demonstrate how to define and use a structure, we have provided a
@@ -168,9 +172,10 @@ a student (by reference) and prints it out to the standard output.
 2.  Change the values in the function to your name, NUID, and birth
     date.
 
-3.  Compile and run the program using the following commands.  
+3.  Compile and run the program using the following commands.
+
     ```text
-    gcc -c -std=gnu89 student.c
+    gcc -c student.c
     gcc student.o studentDemo.c
     ```
     Run your program and observe the results. Refer back to this
@@ -215,19 +220,11 @@ library, you may find the following documentation useful:
     - `rss.h`
     - `rss.c`
 
-    through the webhandin (<https://cse-apps.unl.edu/handin>) using your
-    cse login and password.
+    through the handin and verify it compiles and works through the
+    grader.
 
 2.  Even if you worked with a partner, you *both* should turn in all
     files.
-
-3.  Verify your program by grading yourself through the webgrader
-    (<https://cse.unl.edu/~cse155e/grade/>) using the same credentials.
-
-4.  Recall that both expected output and your program's output will be
-    displayed. The formatting may differ slightly which is fine. As long
-    as your program successfully compiles, runs and outputs the *same
-    values*, it is considered correct.
 
 ## Advanced Activity (Optional)
 
