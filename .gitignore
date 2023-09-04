@@ -33,6 +33,7 @@ figures/_minted*
 # binaries
 *.o
 runRss
+rssTest
 curlTest
 a.out
 solution/

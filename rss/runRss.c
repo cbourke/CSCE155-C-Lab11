@@ -20,11 +20,11 @@ int main(int argc, char **argv) {
   if (argc > 1) {
     int choice = atoi(argv[1]);
     if (choice == 2) {
-      s = huskerNews;
+      s = unlNews;
     } else if (choice == 3) {
       s = reddit;
     } else if (choice == 4) {
-      s = unoNews;
+      s = pintrest;
     }
   }
 

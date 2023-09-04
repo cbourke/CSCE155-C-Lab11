@@ -27,21 +27,12 @@ static const RssService cseBitsAndBytes = {
 };
 
 /**
- * RSS feed for Husker athletics news
- */
-static const RssService huskerNews = {
-    "Husker Sports News",
-    "https://huskers.com/rss.aspx",
-    RSS2
-};
-
-/**
  * RSS feed for the University of Nebraska-Omaha
  */
-static const RssService unoNews = {
-    "University of Nebraska-Omaha",
-    "https://www.unomaha.edu/news/index.rss",
-    RSS2
+static const RssService unlNews = {
+    "University of Nebraska-Lincoln",
+    "https://events.unl.edu/upcoming/?format=rss",
+    ATOM1
 };
 
 /**
@@ -50,7 +41,18 @@ static const RssService unoNews = {
 static const RssService reddit = {
   "Reddit",
   "https://www.reddit.com/.rss",
-  ATOM1};
+  ATOM1
+};
+
+/**
+ * An RSS feed of Pintrest's front page.
+ */
+static const RssService pintrest = {
+  "Pintrest",
+  "https://newsroom.pinterest.com/en/feed/news.xml",
+	RSS2
+};
+
 
 /**
  * A utility function to parse an XML feed from an RSS feed
