@@ -14,7 +14,7 @@
  * command line arguments 1 - 3 to connect to different feeds.
  */
 int main(int argc, char **argv) {
-  // default: UNL News
+  // default: School of Computing News
   RssService s = cseBitsAndBytes;
 
   if (argc > 1) {
@@ -23,6 +23,8 @@ int main(int argc, char **argv) {
       s = huskerNews;
     } else if (choice == 3) {
       s = reddit;
+    } else if (choice == 4) {
+      s = unoNews;
     }
   }
 

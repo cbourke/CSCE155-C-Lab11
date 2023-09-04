@@ -16,21 +16,39 @@ typedef struct {
   Version type;
 } RssService;
 
+/**
+ * RSS feed for the School of Computing's weekly
+ * Bits and Bytes newsletter
+ */
 static const RssService cseBitsAndBytes = {
-    "CSE Bits and Bytes", 
+    "SoC Bits and Bytes",
     "https://newsroom.unl.edu/announce/cse/?format=rss",
-    RSS2};
-
-static const RssService huskerNews = {
-    "Husker Sports News",
-    "https://huskers.com/rss.aspx", 
-    RSS2};
+    RSS2
+};
 
 /**
- * An RSS feed of Reddit's front page.  
+ * RSS feed for Husker athletics news
+ */
+static const RssService huskerNews = {
+    "Husker Sports News",
+    "https://huskers.com/rss.aspx",
+    RSS2
+};
+
+/**
+ * RSS feed for the University of Nebraska-Omaha
+ */
+static const RssService unoNews = {
+    "University of Nebraska-Omaha",
+    "https://www.unomaha.edu/news/index.rss",
+    RSS2
+};
+
+/**
+ * An RSS feed of Reddit's front page.
  */
 static const RssService reddit = {
-  "Reddit", 
+  "Reddit",
   "https://www.reddit.com/.rss",
   ATOM1};
 

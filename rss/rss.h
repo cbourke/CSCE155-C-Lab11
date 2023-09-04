@@ -32,6 +32,12 @@ void initRss(Rss *feed,
              const char* description);
 
 /**
+ * A function to construct a (human-readable) string representation
+ * of the given RSS item.
+ */
+char *rssToString(const Rss *item);
+
+/**
  * A function that prints the given Rss structure
  * to the standard output.
  */

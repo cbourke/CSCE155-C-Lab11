@@ -220,8 +220,7 @@ library, you may find the following documentation useful:
     - `rss.h`
     - `rss.c`
 
-    through the handin and verify it compiles and works through the
-    grader.
+    and verify it compiles and works through the grader.
 
 2.  Even if you worked with a partner, you *both* should turn in all
     files.

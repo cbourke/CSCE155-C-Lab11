@@ -1,6 +1,6 @@
 #
 # makefile for the RSS lab
-# 
+#
 
 # compile with gcc
 CC = gcc -std=gnu99 -Wall
@@ -15,6 +15,9 @@ CURL_LIB = -lcurl
 runRss: runRss.c rss_utils.o rss.o curl_utils.o
 	$(CC) $(XML_INCLUDE) -o runRss runRss.c curl_utils.o rss_utils.o rss.o $(XML_LIB) $(CURL_LIB)
 
+rssTest: rssTest.c rss.o
+	$(CC) $(XML_INCLUDE) -o rssTest rssTest.c rss.o
+
 rss_utils.o: rss_utils.c rss_utils.h
 	$(CC) -Wno-pointer-sign $(XML_INCLUDE) -c -o rss_utils.o rss_utils.c $(XML_LIB)
 
@@ -27,5 +30,5 @@ curl_utils.o: curl_utils.c curl_utils.h
 curlTest: curl_utils.o
 	$(CC) -o curlTest curl_utils.o curlTest.c $(CURL_LIB)
 
-clean: 
+clean:
 	rm -f *.o *~
