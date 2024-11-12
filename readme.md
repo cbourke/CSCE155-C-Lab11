@@ -147,7 +147,7 @@ activity.  Run the following commands:
 
 ```bash
 sudo apt-get update
-sudo apt-get install libxml2-dev libxml2-doc
+sudo apt-get install libxml2-dev libxslt1-dev
 sudo apt-get install libcurl4-gnutls-dev
 ```
 
