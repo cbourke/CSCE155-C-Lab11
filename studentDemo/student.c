@@ -42,26 +42,22 @@ void initStudent(Student *student,
   return;
 }
 
-
 char *studentToString(const Student *student) {
   if (student == NULL) {
     char *result = (char *)malloc(sizeof(char) * 7);
     strcpy(result, "(null)");
     return result;
   }
+  char buffer[1000];
+  // format the student into the temporary buffer string
+  snprintf(buffer, sizeof(buffer), "%s, %s (%08d, %4d-%02d-%02d)",
+           student->lastName, student->firstName, student->nuid,
+           (student->birthDate.tm_year + 1900), (student->birthDate.tm_mon + 1),
+           student->birthDate.tm_mday);
 
-  // compute the number of characters we'll need:
-  int n = strlen(student->lastName) + strlen(student->firstName) + 8 + 10 +
-          (2 + 2 + 2 + 1) + 1;
-
-  // create a result string
-  char *str = (char *)malloc(sizeof(char) * n);
-
-  // format the student into the temporary string
-  sprintf(str, "%s, %s (%08d, %4d-%02d-%02d)", student->lastName,
-          student->firstName, student->nuid,
-          (student->birthDate.tm_year + 1900), (student->birthDate.tm_mon + 1),
-          student->birthDate.tm_mday);
+  // create a result string and copy contents of buffer
+  char *str = (char *)malloc(sizeof(char) * (strlen(buffer) + 1));
+  strcpy(str, buffer);
 
   // return the result
   return str;
