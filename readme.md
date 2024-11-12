@@ -143,9 +143,13 @@ Clone the project code for this lab from GitHub by using the following
 URL: <https://github.com/cbourke/CSCE155-C-Lab11>.
 
 In addition, you may need to install some libraries to complete this
-activity.  Run the following command:
+activity.  Run the following commands:
 
-`sudo apt-get install libcurl4-gnutls-dev`
+```bash
+sudo apt-get update
+sudo apt-get install libxml2-dev libxml2-doc
+sudo apt-get install libcurl4-gnutls-dev
+```
 
 ### 3.2 `Student` Structure Demo
 
