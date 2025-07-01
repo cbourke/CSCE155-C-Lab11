@@ -23,7 +23,7 @@ EarthquakeData *loadData(int *n) {
 
     EarthquakeData* result = (EarthquakeData*)malloc(numDataPoints * sizeof(EarthquakeData));
 
-    
+    for(int i)
 
     return result;
 }
@@ -42,4 +42,8 @@ char *earthquakeDataToString(EarthquakeData *data) {
 char *strCopy(const char *str) {
     char *copy = (char *) malloc(sizeof(char) * (strlen(str)+1));
     return copy;
+}
+
+int initEarthquakeData(EarthquakeData *data) {
+
 }
