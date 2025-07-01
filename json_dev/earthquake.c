@@ -37,7 +37,7 @@ EarthquakeData *loadData(int *n) {
         const char *locationName = json_object_get_string(json_object_object_get(properties, "place"));
         double magnitude = json_object_get_double(json_object_object_get(properties, "mag"));
         int significance = json_object_get_int(json_object_object_get(properties, "sig"));
-        long timestamp = json_object_get_double(json_object_object_get(properties, "time"));
+        long timestamp = json_object_get_int64(json_object_object_get(properties, "time"));
 
         //features[i].geometry.coordinates
         struct json_object *coordinates = json_object_object_get(json_object_object_get(feature, "geometry"), "coordinates");
@@ -63,7 +63,7 @@ char *earthquakeDataToString(EarthquakeData *data) {
     strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S UTC", timeinfo);
 
     char temp[1000];
-    sprintf(temp, "%10s %-40s %.1f (%3d) at %s, (%7.2f, %7.2f) %6.2fkm", data->id,
+    sprintf(temp, "%-15s %-40s %.1f (%3d) at %s, (%7.2f, %7.2f) %6.2fkm", data->id,
                                   data->locationName,
                                   data->magnitude,
                                   data->significance,
