@@ -13,6 +13,10 @@ EarthquakeData *loadData(int *n) {
 	struct json_object *object;
 	object = json_tokener_parse(str);
 
+    struct json_object *student;
+	json_object_object_get_ex(object, "student", &student);
+
+
 	printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(object, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
 
 	char *val_type_str;
