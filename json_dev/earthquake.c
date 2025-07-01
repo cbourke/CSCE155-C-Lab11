@@ -13,8 +13,14 @@ EarthquakeData *loadData(int *n) {
 	struct json_object *object;
 	object = json_tokener_parse(str);
 
-    struct json_object *student;
-	json_object_object_get_ex(object, "student", &student);
+    struct json_object *metadata;
+	json_object_object_get_ex(object, "metadata", &metadata);
+
+
+
+    //features is an array of earthquake events
+    struct json_object *features;
+	json_object_object_get_ex(object, "features", &features);
 
 
 	printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(object, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
