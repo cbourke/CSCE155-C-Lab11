@@ -23,7 +23,9 @@ EarthquakeData *loadData(int *n) {
 
     EarthquakeData* result = (EarthquakeData*)malloc(numDataPoints * sizeof(EarthquakeData));
 
-    for(int i)
+    for(int i=0; i<numDataPoints; i++) {
+        initEarthquakeData(&result[i]);
+    }
 
     return result;
 }
@@ -46,4 +48,13 @@ char *strCopy(const char *str) {
 
 int initEarthquakeData(EarthquakeData *data) {
 
+    data->id = strCopy(data->id, "TEST_ID");
+    data->locationName = strCopy(data->locationName, "TEST_LOC");
+    data->magnitude = 10;
+    data->timestamp = 100;
+    data->latitude = 4.5;
+    data->longitude = 3.5;
+    data->depth = 32;
+
+    return 0;
 }
