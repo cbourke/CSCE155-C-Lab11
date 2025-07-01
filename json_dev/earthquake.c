@@ -48,8 +48,8 @@ char *strCopy(const char *str) {
 
 int initEarthquakeData(EarthquakeData *data) {
 
-    data->id = strCopy(data->id, "TEST_ID");
-    data->locationName = strCopy(data->locationName, "TEST_LOC");
+    data->id = strCopy("TEST_ID");
+    data->locationName = strCopy("TEST_LOC");
     data->magnitude = 10;
     data->timestamp = 100;
     data->latitude = 4.5;
