@@ -35,6 +35,7 @@ EarthquakeData *loadData(int *n) {
         struct json_object *properties = json_object_object_get(feature, "properties");
         const char *locationName = json_object_get_string(json_object_object_get(properties, "place"));
         double magnitude = json_object_get_double(json_object_object_get(properties, "mag"));
+        int significance = json_object_get_int(json_object_object_get(properties, "sig"));
         int timestamp = json_object_get_double(json_object_object_get(properties, "time"));
 
         //features[i].geometry.coordinates
@@ -43,7 +44,7 @@ EarthquakeData *loadData(int *n) {
         double longitude = json_object_get_double(json_object_array_get_idx(coordinates, 1));
         double depth = json_object_get_double(json_object_array_get_idx(coordinates, 2));
 
-        initEarthquakeData(&result[i], id, locationName, magnitude, timestamp, latitude, longitude, depth);
+        initEarthquakeData(&result[i], id, locationName, magnitude, significance, timestamp, latitude, longitude, depth);
     }
 
 
@@ -54,9 +55,10 @@ EarthquakeData *loadData(int *n) {
 
 char *earthquakeDataToString(EarthquakeData *data) {
     char temp[1000];
-    sprintf(temp, "%10s %-40s %.1f, (%7.2f, %7.2f) %6.2fkm", data->id,
+    sprintf(temp, "%10s %-40s %.1f (%3d), (%7.2f, %7.2f) %6.2fkm", data->id,
                                   data->locationName,
                                   data->magnitude,
+                                  data->significance,
                                   data->latitude,
                                   data->longitude,
                                   data->depth);
@@ -73,6 +75,7 @@ int initEarthquakeData(EarthquakeData *data,
   const char *id,
   const char *locationName,
   double magnitude,
+  int significance,
   int timestamp,
   double latitude,
   double longitude,
@@ -81,6 +84,7 @@ int initEarthquakeData(EarthquakeData *data,
     data->id = strCopy(id);
     data->locationName = strCopy(locationName);
     data->magnitude = magnitude;
+    data->significance = significance;
     data->timestamp = timestamp;
     data->latitude = latitude;
     data->longitude = longitude;

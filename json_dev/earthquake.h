@@ -5,6 +5,7 @@ typedef struct {
   char *locationName;
   double magnitude;
   int timestamp;
+  int significance;
   double latitude;
   double longitude;
   double depth; //km
@@ -19,6 +20,7 @@ int initEarthquakeData(EarthquakeData *data,
   const char *id,
   const char *locationName,
   double magnitude,
+  int significance,
   int timestamp,
   double latitude,
   double longitude,
