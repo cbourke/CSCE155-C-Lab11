@@ -10,12 +10,12 @@ EarthquakeData *loadData(int *n) {
 
 	char *str = getContent(usgs_earthquake_url);
 
-	struct json_object *object;
-	object = json_tokener_parse(str);
+	struct json_object *data;
+	data = json_tokener_parse(str);
 
-    struct json_object *metadata;
-	json_object_object_get_ex(object, "metadata", &metadata);
-
+    struct json_object *metadata = json_object_object_get(data, "metadata");
+    struct json_object *count = json_object_object_get(metadata, "count");
+    long numDataPoints = 
 
 
     //features is an array of earthquake events
