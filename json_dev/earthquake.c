@@ -30,7 +30,12 @@ EarthquakeData *loadData(int *n) {
 
     struct json_object *features_obj = json_object_object_get(metadata, "features");
     struct array_list *features = json_object_get_array(features_obj);
-    
+    int length = json_object_array_length(features_obj);
+    for(int i=0; i<length; i++) {
+        struct json_object *feature = json_object_array_get_idx(features_obj, i);
+        printf("debug: %d...\n", i);
+    }
+
 
 
 
