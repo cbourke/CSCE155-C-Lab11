@@ -38,11 +38,12 @@ EarthquakeData *loadData(int *n) {
         int timestamp = json_object_get_double(json_object_object_get(properties, "time"));
 
         //features[i].geometry.coordinates
-        struct json_object *coordinates = json_object_object_get(feature, "geometry.coordinates");
-        double latitude = json_object_get_double(json_object_array_get_idx(coordinates));
+        struct json_object *coordinates = json_object_object_get(json_object_object_get(feature, "geometry"), "coordinates");
+        double latitude = json_object_get_double(json_object_array_get_idx(coordinates, 0));
+        double longitude = json_object_get_double(json_object_array_get_idx(coordinates, 1));
+        double depth = json_object_get_double(json_object_array_get_idx(coordinates, 2));
 
-
-        initEarthquakeData(&result[i], id, locationName, magnitude, timestamp, 0, 0, 0);
+        initEarthquakeData(&result[i], id, locationName, magnitude, timestamp, latitude, longitude, depth);
     }
 
 
@@ -53,7 +54,7 @@ EarthquakeData *loadData(int *n) {
 
 char *earthquakeDataToString(EarthquakeData *data) {
     char temp[1000];
-    sprintf(temp, "%10s %-40s %.1f, (%.2f, %.2f) %d", data->id,
+    sprintf(temp, "%10s %-40s %.1f, (%.2f, %.2f) %.2fkm", data->id,
                                   data->locationName,
                                   data->magnitude,
                                   data->latitude,
@@ -75,7 +76,7 @@ int initEarthquakeData(EarthquakeData *data,
   int timestamp,
   double latitude,
   double longitude,
-  int depth) {
+  double depth) {
 
     data->id = strCopy(id);
     data->locationName = strCopy(locationName);

@@ -7,7 +7,7 @@ typedef struct {
   int timestamp;
   double latitude;
   double longitude;
-  int depth; //km
+  double depth; //km
 } EarthquakeData;
 
 /**
@@ -22,7 +22,7 @@ int initEarthquakeData(EarthquakeData *data,
   int timestamp,
   double latitude,
   double longitude,
-  int depth);
+  double depth);
 
 char *earthquakeDataToString(EarthquakeData *data);
 
