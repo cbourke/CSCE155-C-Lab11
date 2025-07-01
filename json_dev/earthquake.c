@@ -33,7 +33,14 @@ EarthquakeData *loadData(int *n) {
     int length = json_object_array_length(features_obj);
     for(int i=0; i<length; i++) {
         struct json_object *feature = json_object_array_get_idx(features_obj, i);
+        //features[i].id
         const char *id = json_object_get_string(json_object_object_get(feature, "id"));
+        //features[i].properties
+        struct json_object *properties = json_object_object_get(feature, "properties");
+        double magnitude = json_object_get_double(json_object_object_get(properties, "mag"));
+        const char *locationName = json_object_get_string(json_object_object_get(feature, "id"));
+
+
         printf("debug: %d: %s...\n", i, id);
     }
 
