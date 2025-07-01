@@ -33,12 +33,12 @@ EarthquakeData *loadData(int *n) {
         const char *id = json_object_get_string(json_object_object_get(feature, "id"));
         //features[i].properties
         struct json_object *properties = json_object_object_get(feature, "properties");
-        double magnitude = json_object_get_double(json_object_object_get(properties, "mag"));
         const char *locationName = json_object_get_string(json_object_object_get(properties, "place"));
+        double magnitude = json_object_get_double(json_object_object_get(properties, "mag"));
 
 
         printf("debug: %d: %s...\n", i, id);
-        initEarthquakeData(&result[i], id, location);
+        initEarthquakeData(&result[i], id, locationName, magnitude);
     }
 
 
@@ -64,7 +64,14 @@ char *strCopy(const char *str) {
     return copy;
 }
 
-int initEarthquakeData(EarthquakeData *data) {
+int initEarthquakeData(EarthquakeData *data,
+  const char *id,
+  const char *locationName;
+  double magnitude;
+  int timestamp;
+  double latitude;
+  double longitude;
+  int depth; //km) {
 
     data->id = strCopy("TEST_ID");
     data->locationName = strCopy("TEST_LOC");
