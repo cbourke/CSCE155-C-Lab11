@@ -1,6 +1,7 @@
 
 #include <json.h>
 #include <stdio.h>
+#include <time.h>
 #include <string.h>
 
 #include "curl_utils.h"
@@ -54,11 +55,19 @@ EarthquakeData *loadData(int *n) {
 }
 
 char *earthquakeDataToString(EarthquakeData *data) {
+
+    time_t raw_time = (time_t)data->timestamp / 1000;
+    struct tm *timeinfo = gmtime(&raw_time);
+
+    char time_str[30];
+    strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S UTC", timeinfo);
+
     char temp[1000];
-    sprintf(temp, "%10s %-40s %.1f (%3d), (%7.2f, %7.2f) %6.2fkm", data->id,
+    sprintf(temp, "%10s %-40s %.1f (%3d) at %s, (%7.2f, %7.2f) %6.2fkm", data->id,
                                   data->locationName,
                                   data->magnitude,
                                   data->significance,
+                                  time_str,
                                   data->latitude,
                                   data->longitude,
                                   data->depth);
