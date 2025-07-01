@@ -21,6 +21,9 @@ JSON_LIB = -ljson-c
 runRss: runRss.c rss_utils.o rss.o curl_utils.o
 	$(CC) $(XML_INCLUDE) -o runRss runRss.c curl_utils.o rss_utils.o rss.o $(XML_LIB) $(CURL_LIB)
 
+runMain: earthQuakeDev.c earthquake.o curl_utils.o
+	$(CC) -o runMain earthQuakeDev.c curl_utils.o earthquake.o $(CURL_LIB) $(JSON_LIB)
+
 rssTest: rssTest.c rss.o
 	$(CC) $(XML_INCLUDE) -o rssTest rssTest.c rss.o
 

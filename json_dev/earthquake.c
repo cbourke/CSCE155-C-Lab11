@@ -6,6 +6,8 @@
 #include "curl_utils.h"
 #include "earthquake.h"
 
+const char *usgs_earthquake_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
+
 EarthquakeData *loadData(int *n) {
 
 	char *str = getContent(usgs_earthquake_url);
