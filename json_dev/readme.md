@@ -36,3 +36,11 @@ More of an API, but has a full data dump to avoid pagination/throttling
 https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson
 
 https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+
+
+# USGS Data
+
+Formats: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+
