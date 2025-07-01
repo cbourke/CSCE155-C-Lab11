@@ -43,6 +43,7 @@ char *earthquakeDataToString(EarthquakeData *data) {
 
 char *strCopy(const char *str) {
     char *copy = (char *) malloc(sizeof(char) * (strlen(str)+1));
+    strcpy(copy, str);
     return copy;
 }
 
