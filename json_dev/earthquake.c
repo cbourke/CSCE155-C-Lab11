@@ -38,7 +38,7 @@ EarthquakeData *loadData(int *n) {
 
 
         printf("debug: %d: %s...\n", i, id);
-        initEarthquakeData(&result[i], id, locationName, magnitude);
+        initEarthquakeData(&result[i], id, locationName, magnitude, 0, 0, 0, 0);
     }
 
 
@@ -49,7 +49,7 @@ EarthquakeData *loadData(int *n) {
 
 char *earthquakeDataToString(EarthquakeData *data) {
     char temp[1000];
-    sprintf(temp, "%s %s %.1f, (%.2f, %.2f) %d", data->id,
+    sprintf(temp, "%10s %s %.1f, (%.2f, %.2f) %d", data->id,
                                   data->locationName,
                                   data->magnitude,
                                   data->latitude,
@@ -66,20 +66,20 @@ char *strCopy(const char *str) {
 
 int initEarthquakeData(EarthquakeData *data,
   const char *id,
-  const char *locationName;
-  double magnitude;
-  int timestamp;
-  double latitude;
-  double longitude;
-  int depth; //km) {
+  const char *locationName,
+  double magnitude,
+  int timestamp,
+  double latitude,
+  double longitude,
+  int depth) {
 
-    data->id = strCopy("TEST_ID");
-    data->locationName = strCopy("TEST_LOC");
-    data->magnitude = 10;
-    data->timestamp = 100;
-    data->latitude = 4.5;
-    data->longitude = 3.5;
-    data->depth = 32;
+    data->id = strCopy(id);
+    data->locationName = strCopy(locationName);
+    data->magnitude = magnitude;
+    data->timestamp = timestamp;
+    data->latitude = latitude;
+    data->longitude = longitude;
+    data->depth = depth;
 
     return 0;
 }

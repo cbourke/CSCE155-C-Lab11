@@ -15,7 +15,14 @@ typedef struct {
  */
 EarthquakeData *loadData(int *n);
 
-int initEarthquakeData(EarthquakeData *data);
+int initEarthquakeData(EarthquakeData *data,
+  const char *id,
+  const char *locationName,
+  double magnitude,
+  int timestamp,
+  double latitude,
+  double longitude,
+  int depth);
 
 char *earthquakeDataToString(EarthquakeData *data);
 
