@@ -9,7 +9,7 @@
 
 const char *usgs_earthquake_url_day = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
 const char *usgs_earthquake_url_week = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-const char *usgs_earthquake_url = usgs_earthquake_url_day;
+const char *usgs_earthquake_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
 
 EarthquakeData *loadData(int *n) {
 
