@@ -25,3 +25,9 @@ EarthquakeData *loadData(int *n) {
 
     return result;
 }
+
+char *earthquakeDataToString(EarthquakeData *data) {
+    char temp[1000];
+    sprintf(temp, "", )
+
+}

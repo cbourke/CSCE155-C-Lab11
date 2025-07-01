@@ -15,4 +15,4 @@ typedef struct {
  */
 EarthquakeData *loadData(int *n);
 
-char *EarthquakeDataToString
+char *earthquakeDataToString(EarthquakeData *data);
