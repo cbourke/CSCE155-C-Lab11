@@ -54,7 +54,7 @@ EarthquakeData *loadData(int *n) {
 
 char *earthquakeDataToString(EarthquakeData *data) {
     char temp[1000];
-    sprintf(temp, "%10s %-40s %.1f, (%.2f, %.2f) %.2fkm", data->id,
+    sprintf(temp, "%10s %-40s %.1f, (%7.2f, %7.2f) %6.2fkm", data->id,
                                   data->locationName,
                                   data->magnitude,
                                   data->latitude,
