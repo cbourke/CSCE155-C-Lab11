@@ -28,6 +28,11 @@ EarthquakeData *loadData(int *n) {
 
 char *earthquakeDataToString(EarthquakeData *data) {
     char temp[1000];
-    sprintf(temp, "", )
-
+    sprintf(temp, "%s %s %.1f, (%.2f, %.2f) %d", data->id,
+                                  data->locationName,
+                                  data->magnitude,
+                                  data->latitude,
+                                  data->longitude,
+                                  data->depth);
+    return strCopy(temp);
 }

@@ -16,3 +16,5 @@ typedef struct {
 EarthquakeData *loadData(int *n);
 
 char *earthquakeDataToString(EarthquakeData *data);
+
+char *strCopy(temp);
