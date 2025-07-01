@@ -10,8 +10,9 @@ int main(int argc, char **argv) {
     for(int i=0; i<n; i++) {
         char *s = earthquakeDataToString(&data[i]);
         printf("%s\n", s);
+        freeEarthquakeData(&data[i]);
     }
-
+    free(data);
 
     return 0;
 }

@@ -33,9 +33,8 @@ EarthquakeData *loadData(int *n) {
     int length = json_object_array_length(features_obj);
     for(int i=0; i<length; i++) {
         struct json_object *feature = json_object_array_get_idx(features_obj, i);
-        json_object_object_get
-        char *id = json_object_get_string()
-        printf("debug: %d...\n", i);
+        const char *id = json_object_get_string(json_object_object_get(feature, "id"));
+        printf("debug: %d: %s...\n", i, id);
     }
 
 
@@ -72,4 +71,10 @@ int initEarthquakeData(EarthquakeData *data) {
     data->depth = 32;
 
     return 0;
+}
+
+void freeEarthquakeData(EarthquakeData *data) {
+    free(data->id);
+    free(data->locationName);
+    return;
 }

@@ -20,3 +20,5 @@ int initEarthquakeData(EarthquakeData *data);
 char *earthquakeDataToString(EarthquakeData *data);
 
 char *strCopy(const char *str);
+
+void freeEarthquakeData(EarthquakeData *data);
