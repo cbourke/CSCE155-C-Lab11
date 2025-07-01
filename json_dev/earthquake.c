@@ -24,10 +24,6 @@ EarthquakeData *loadData(int *n) {
 
     EarthquakeData* result = (EarthquakeData*)malloc(numDataPoints * sizeof(EarthquakeData));
 
-    for(int i=0; i<numDataPoints; i++) {
-        initEarthquakeData(&result[i]);
-    }
-
     struct json_object *features_obj = json_object_object_get(data, "features");
     //struct array_list *features = json_object_get_array(features_obj);
     int length = json_object_array_length(features_obj);
@@ -38,10 +34,11 @@ EarthquakeData *loadData(int *n) {
         //features[i].properties
         struct json_object *properties = json_object_object_get(feature, "properties");
         double magnitude = json_object_get_double(json_object_object_get(properties, "mag"));
-        const char *locationName = json_object_get_string(json_object_object_get(feature, "id"));
+        const char *locationName = json_object_get_string(json_object_object_get(properties, "place"));
 
 
         printf("debug: %d: %s...\n", i, id);
+        initEarthquakeData(&result[i], id, location);
     }
 
 
