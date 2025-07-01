@@ -15,80 +15,11 @@ EarthquakeData *loadData(int *n) {
 
     struct json_object *metadata = json_object_object_get(data, "metadata");
     struct json_object *count = json_object_object_get(metadata, "count");
-    long numDataPoints = 
+    long numDataPoints = json_object_get_int64(count);
 
+    printf("read %ld data points\n", numDataPoints);
 
-    //features is an array of earthquake events
-    struct json_object *features;
-	json_object_object_get_ex(object, "features", &features);
+    EarthquakeData* result = (EarthquakeData*)malloc(numDataPoints * sizeof(EarthquakeData));
 
-
-	printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(object, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
-
-	char *val_type_str;
-	int val_type, i;
-
-	// key and val don't exist outside of this bloc
-	json_object_object_foreach(object, key, val) {
-		printf("key: \"%s\", type of val: ", key);
-		val_type = json_object_get_type(val);
-
-		switch (val_type) {
-			case json_type_null:
-				val_type_str = "val is NULL";
-				break;
-
-			case json_type_boolean:
-				val_type_str = "val is a boolean";
-				break;
-
-			case json_type_double:
-				val_type_str = "val is a double";
-				break;
-
-			case json_type_int:
-				val_type_str = "val is an integer";
-				break;
-
-			case json_type_string:
-				val_type_str = "val is a string";
-				str = (char *) json_object_get_string(val);
-				break;
-
-			case json_type_object:
-				val_type_str = "val is an object";
-				break;
-
-			case json_type_array:
-				val_type_str = "val is an array";
-				break;
-		}
-
-		printf("%s", val_type_str);
-
-		if (str)
-			printf("\t->\t\"%s\"", str);
-
-		printf("\n");
-		str = NULL;
-	}
-
-	//get a subobject:
-	// Get the json_object associated to the "student" key
-	struct json_object *student, *tmp;
-	json_object_object_get_ex(object, "student", &student);
-
-	json_object_object_foreach(student, key2, val2) {
-		str = (char *) json_object_get_string(val2);
-		printf("key: \"%s\" -> %s \n", key2, str);
-
-		if(strcmp(key2, "id") == 0) {
-			//nope, val2 is a macro and a json_object*:
-			// int x = atoi(val2);
-			int y = json_object_get_int(val2);
-			printf("y = %d\n", y);
-		}
-	}
-
-	return 0;
+    return result;
 }

@@ -27,6 +27,9 @@ rssTest: rssTest.c rss.o
 rss_utils.o: rss_utils.c rss_utils.h
 	$(CC) -Wno-pointer-sign $(XML_INCLUDE) -c -o rss_utils.o rss_utils.c $(XML_LIB)
 
+earthquake.o: earthquake.c earthquake.h
+	$(CC) $(JSON_INCLUDE) -c -o earthquake.o earthquake.c
+
 rss.o: rss.c rss.h
 	$(CC) -c -o rss.o rss.c
 
