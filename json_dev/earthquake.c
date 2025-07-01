@@ -18,6 +18,7 @@ EarthquakeData *loadData(int *n) {
     struct json_object *metadata = json_object_object_get(data, "metadata");
     struct json_object *count = json_object_object_get(metadata, "count");
     long numDataPoints = json_object_get_int64(count);
+    *n = numDataPoints;
 
     printf("read %ld data points\n", numDataPoints);
 
@@ -26,6 +27,12 @@ EarthquakeData *loadData(int *n) {
     for(int i=0; i<numDataPoints; i++) {
         initEarthquakeData(&result[i]);
     }
+
+    struct json_object *features_obj = json_object_object_get(metadata, "features");
+    struct array_list *features = json_object_get_array(features_obj);
+    
+
+
 
     return result;
 }
