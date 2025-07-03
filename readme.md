@@ -1,9 +1,9 @@
 # Computer Science I
 ## Lab 11.0 - Encapsulation & Structures
-[School of Computing](https://computing.unl.edu)  
-[College of Engineering](https://engineering.unl.edu/)  
-[University of Nebraska-Lincoln](https://unl.edu)  
-[University of Nebraska-Omaha](https://unomaha.edu)  
+[School of Computing](https://computing.unl.edu)
+[College of Engineering](https://engineering.unl.edu/)
+[University of Nebraska-Lincoln](https://unl.edu)
+[University of Nebraska-Omaha](https://unomaha.edu)
 
 This lab introduces encapsulation and structures in C.
 
@@ -61,79 +61,64 @@ At the end of this lab you should be familiar with the following
 -   Understand how to design, declare, and use C structures (both by
     reference and by value)
 
--   Have some exposure to advanced topics such as sockets, the HTTP
-    protocol, and XML processing
+-   Have some exposure to distributed computing, the client-server
+    model and data processing using JavaScript Object Notation (JSON)
 
 ## 2. Background
 
-### 2.1 RSS Feeds
+### 2.1 Structures in C
 
-An RSS feed (RDF Site Summary or "Really Simple Syndication") is a
-format used to publish frequently updated works. RSS enabled clients can
-subscribe to RSS feeds and update a user as to new or relevant news
-items. RSS feeds are most commonly formatted using XML (Extensible
-Markup Language) that use XML tags to indicate what the data represents
-(the title of the article, a short description, etc.). Clients "read" an
-RSS feed by making a connection to a server using the HyperText Transfer
-Protocol (HTTP).
+When modeling data, an "entity" may be composed of several different
+pieces of data. A person for example may have a first and last name
+(strings), an identifier (integer), a birthdate (some date/time representation),
+etc. It is much easier and more natural to *group* each of these pieces
+of data into one entity. This is a concept known as *encapsulation*--a
+mechanism by which data can be grouped together to define an entity.
 
-For example, UNL has an RSS news feed available at
-<http://newsroom.unl.edu/releases/?format=xml> which serves XML data
-that looks something like the following:
-
-```xml
-<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-<channel>
-  <title>UNL News Releases</title>
-  <link>http://newsroom.unl.edu/releases/</link>
-  <description>News from the University of Nebraska-Lincoln</description>
-  <language>en-us</language>
-  <copyright>Copyright 2012 University of Nebraska-Lincoln</copyright>
-  <image>
-    <title>UNL News Releases</title>
-    <url>http://www.unl.edu/favicon.ico</url>
-    <link>http://www.unl.edu/</link>
-  </image>
-  <item>
-    <title>Guerrilla Girls on Tour perform 'Feminists are Funny' Monday at Sheldon</title>
-    <link>http://newsroom.unl.edu/releases/2012/03/09/Guerrilla</link>
-    <description>The Guerrilla Girls on Tour, an internationally acclaimed anonymous theater collective, will perform "Feminists are Funny" at the University of Nebraska-Lincoln's Sheldon Museum of Art, 12th and R streets, at 7 p.m. March 12. The 70-minute play is an...
-    </description>
-    <pubDate>Fri, 09 Mar 2012 02:00:00 -0600</pubDate>
-  </item>
-  ...
-  </items>
-</channel>
-```
-
-### 2.2 Structures in C
-
-An entity may be composed of several different pieces of data. A person
-for example may have a first and last name (strings), an age (integer),
-a birthdate (some date/time representation), etc. Its much easier and
-more natural to group each of these pieces of data into one entity. This
-is a concept known as *encapsulation*--a mechanism by which data can be
-grouped together to define an entity.
-
-The C programming language provides a mechanism to achieve encapsulation
+The C programming language provides a mechanism for encapsulation
 using structures. Structures are user defined types that have one or
-more data fields–variables which have a type and a name. To access the
+more data fields--variables which have a type and a name. To access the
 member fields of a structure you can use the dot operator; example: .
 `student.firstName`.  However, when you have a reference (pointer) to a
 structure, you need to use the arrow operator: `student->firstName`.
 
-### 2.3 RSS Client Background
+### 2.2 Distributed Computing & The Client/Server Model
 
-You have been provided with an incomplete RSS client written in C. The
-client uses the cURL library (Client URL) library to make an HTTP
-(or a secure HTTPS) connection using a URL (a web address) to an RSS
-server.  The server responds with a stream of data that
-the client reads into a buffer. This data stream can, in general, be any
-type of data, but we're expecting an RSS feed--a stream of plain text
-XML-formatted data conforming to the RSS standard. Since the data is
-plain text, it is stored in a character array which is then handed off
-to another function to parse the XML document. This is done using an XML
-library (libxml2, an XML parser and toolkit for Gnome).
+Distributed computing involves multiple machines or devices working together
+to solve a problem or perform a task.  Typically, these computers communicate
+and coordinate their efforts using a network.  One architectural pattern
+in distributed computing is the *client-server* model.  Typically the *server*
+provides resources, services, or data to the *client*.  The client makes
+*requests* over the network, the server *responds* to those requests.  This
+means that the data can be stored on one computer while being processed on
+a different one, distributing the different tasks.
+
+For this lab, our example will be the United States Geological Survey's (USGS)
+(Earthquake Notification Service)[https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php]
+which provides live data on earthquakes across the globe.  The server uses
+an Application Programmer Interface (API) that clients (our program) can
+request data on earthquakes detected in the last hour, day, or week.  The
+data is served in a response using the JavaScript Object Notation (JSON) data
+format, a universal key-value pair format.  An example of this format has
+been provided in `earthquake_data/data/local_data.json`.  Here is a small example
+using student data:
+
+```json
+{
+  "student": {
+    "firstName": "John",
+    "lastName": "Smith",
+    "NUID": 12345678,
+    "GPA": 3.5,
+    "birthdate": "1970-01-01"
+  }
+}
+```
+
+We have provided most of the code to connect to the USGS's server
+and process the JSON data.  Your task will be to design and implement
+a C structure that represents this data and then write code that
+produces some reports on the data.
 
 ## 3. Activities
 
@@ -147,7 +132,7 @@ activity.  Run the following commands:
 
 ```bash
 sudo apt-get update
-sudo apt-get install libxml2-dev libxslt1-dev
+sudo apt-get install libjson-c-dev
 sudo apt-get install libcurl4-gnutls-dev
 ```
 
@@ -185,44 +170,55 @@ a student (by reference) and prints it out to the standard output.
     Run your program and observe the results. Refer back to this
     program in the next activity as needed.
 
-### 3.3 Completing the RSS Client
+### 3.3 Designing Your Structure
 
-In this activity, you will complete the RSS Client that connects to a
-UNL RSS feed, processes the XML data and outputs the results to the
-standard output. Most of the client has been completed for you. You just
-need to complete the design and implementation of a C structure that
-models the essential parts of an RSS "item" (usually an individual
-news story). Your structure will need to support an RSS item's title,
-link, description, and publication date.
+Under the `earthquake_data` directory we have provided substantial
+starter code.  You'll need to design and implement a structure to
+represent an earthquake, including the following items:
 
-To keep things simple, we recommend that you represent the date using a
-string. If you would like to try using the structure defined in the time
-library, you may find the following documentation useful:
-<http://pubs.opengroup.org/onlinepubs/7908799/xsh/time.h.html>
-<https://pubs.opengroup.org/onlinepubs/7908799/xsh/strptime.html>
+* An ID (a unique alphanumeric string)
+* Location Name
+* Magnitude (measured on a Richter scale, [-1.0, 10.0])
+* Significance (the impact or damage it had; an integer on the scale [0, 1000])
+* A unix timestamp (a `long` integer value corresponding to the time of the earthquake)
+* Latitude (a `double` corresponding to the latitude, [-90, 90])
+* Longitude (a `double` corresponding to the longitude, [-180, 180])
+* Depth (a `double` corresponding to the depth of the earthquake in kilometers)
 
 #### Instructions
 
-1.  Go to the `rss` directory.  We have provided a collection of source
-    files to do most of the work for you.  To compile it, we have provided
-    a `makefile`.  Simply type `make` and it produces an executable called
-    `runRss`.
+Design and implement the `EarthquakeData` structure in the `earthquake.h` header file.
 
-2.  Examine the `main` function in `runRss.c` and observe how to use
-    the program to connect to three different RSS feeds using
-    command line arguments.
+### 3.4 Supporting Your Structure
 
-3.  Design and implement the RSS structure in the `rss.h` header file
+TODO
 
-4.  Complete all the functions as specified in their documentation.
+#### Instructions
 
+Implement the following functions in `earthquake.c` as the documentation in the
+header file indicates.
+
+* `initEarthquakeData()`
+* `createEarthquakeData()`
+* `earthquakeDataToString()`
+
+### 3.5 Processing Your Data
+
+TODO
+
+#### Instructions
+
+Add code in the `runReports` function to find the earthquake in the
+data set that ocurred closest to Lincoln, Nebraska (using the
+latitude/longitude values 40.806862, -96.681679).  We have provided
+a convenience function, `airDistance()` that you can use.
 
 ## 4. Handin/Grader Instructions
 
 1.  Hand in your completed files:
 
-    - `rss.h`
-    - `rss.c`
+    - `earthquake.h`
+    - `earthquake.c`
 
     and verify it compiles and works through the grader.
 
@@ -231,16 +227,5 @@ library, you may find the following documentation useful:
 
 ## Advanced Activity (Optional)
 
-1.  You will notice that internally, we have provided support for both
-    RSS 2.0 feeds and Atom 1.0 feeds (Reddit uses Atom for example).
-    Examine the files where we have defined these feeds. Find an RSS or
-    Atom feed that is of interest to you and integrate it as an option
-    for this program. Be sure to update the `main` function so that it can
-    be used.
-
-2.  Improve the program further by modifying the `parseRssXml` function. Currently,
-    this function parses the XML but limits the number of RSS structures
-    to a maximum of 100. Write another function to count the number of
-    items in the XML and use it to instead dynamically allocate an RSS
-    array of a size exactly equal to the number of item elements in the
-    XML file.
+1.  An older version of this lab used RSS data feeds (see `rss`).  Try
+    to get it working as well!

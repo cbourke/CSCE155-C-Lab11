@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "curl_utils.h"
+#include "../curl_utils.h"
 
 int main() {
 
@@ -20,7 +20,7 @@ int main() {
 	printf("jobj from str:\n---\n%s\n---\n", json_object_to_json_string_ext(object, JSON_C_TO_STRING_SPACED | JSON_C_TO_STRING_PRETTY));
 
 	char *val_type_str;
-	int val_type, i;
+	int val_type;
 
 	// key and val don't exist outside of this bloc
 	json_object_object_foreach(object, key, val) {
@@ -69,7 +69,7 @@ int main() {
 
 	//get a subobject:
 	// Get the json_object associated to the "student" key
-	struct json_object *student, *tmp;
+	struct json_object *student;
 	json_object_object_get_ex(object, "student", &student);
 
 	json_object_object_foreach(student, key2, val2) {

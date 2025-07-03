@@ -52,7 +52,6 @@ char *getContent(const char *url) {
     strcpy(result, s.ptr);
     free(s.ptr);
 
-    /* always cleanup */
     curl_easy_cleanup(curl);
   }
   return result;

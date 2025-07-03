@@ -28,7 +28,9 @@ Student *createStudent(const char *firstName, const char *lastName, int nuid,
  * given values
  */
 void initStudent(Student *student,
-                 const char *firstName, const char *lastName, int nuid,
+                 const char *firstName,
+                 const char *lastName,
+                 int nuid,
                  const char *birthDate_str);
 
 /**
