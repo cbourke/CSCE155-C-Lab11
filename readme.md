@@ -191,7 +191,9 @@ Design and implement the `EarthquakeData` structure in the `earthquake.h` header
 
 ### 3.4 Supporting Your Structure
 
-TODO
+It is much easier to use structures if you have a collection of supporting
+utility functions that allow you to create (factory functions) and format
+them in a human readable manner.  
 
 #### Instructions
 
@@ -204,12 +206,32 @@ header file indicates.
 
 ### 3.5 Processing Your Data
 
-TODO
+Now that we have our structure, we need to process the data that it represents.
+In the `runReports()` function we have provided two examples that search
+the data for (and print) the weakest (with respect to magnitude) and strongest earthquakes
+in the data set.  The first uses an index to keep track of `EarthquakeData`
+while the second uses a pointer to a structure.  
+
+##### Compiling & Running
+
+The project code we've provided is a bit more complicated than usual
+and so we have provided a `makefile` to build it.  To build the project
+simply use `make` in the `earthquake_data` directory.  This will build
+an executable called `run`.  You can provide a command line argument to
+the program to pull data from the last `hour`, `day`, or `week` using
+those keywords.  For example, you could pull all data from the last week
+using:
+
+`./run week`
+
+Another option is to use `local` which will load static data from the file
+`data/local_data.json` (this is usually done when developing or troubleshooting
+so that we don't hit the server with too many requests).
 
 #### Instructions
 
 Add code in the `runReports` function to find the earthquake in the
-data set that ocurred closest to Lincoln, Nebraska (using the
+data set that occurred closest to Lincoln, Nebraska (using the
 latitude/longitude values 40.806862, -96.681679).  We have provided
 a convenience function, `airDistance()` that you can use.
 
@@ -227,5 +249,13 @@ a convenience function, `airDistance()` that you can use.
 
 ## Advanced Activity (Optional)
 
-1.  An older version of this lab used RSS data feeds (see `rss`).  Try
-    to get it working as well!
+1.  An older version of this lab used RSS data feeds (see the `rss`
+    directory).  Try to get it working as well!  You'll need to install
+    the XML library:
+
+    `sudo apt-get install libxml2-dev libxslt1-dev`
+
+2.  Learn more about cURL and json-c, the libraries used in this lab here:
+    * cURL: https://everything.curl.dev/libcurl/index.html
+    * json-c: https://github.com/json-c/json-c/wiki
+    * Documentation: https://json-c.github.io/json-c/json-c-0.10/doc/html/index.html
