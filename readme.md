@@ -1,8 +1,8 @@
 # Computer Science I
 ## Lab 11.0 - Encapsulation & Structures
-[School of Computing](https://computing.unl.edu)
-[College of Engineering](https://engineering.unl.edu/)
-[University of Nebraska-Lincoln](https://unl.edu)
+[School of Computing](https://computing.unl.edu)  
+[College of Engineering](https://engineering.unl.edu/)  
+[University of Nebraska-Lincoln](https://unl.edu)  
 [University of Nebraska-Omaha](https://unomaha.edu)
 
 This lab introduces encapsulation and structures in C.
@@ -94,7 +94,7 @@ means that the data can be stored on one computer while being processed on
 a different one, distributing the different tasks.
 
 For this lab, our example will be the United States Geological Survey's (USGS)
-(Earthquake Notification Service)[https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php]
+[Earthquake Notification Service](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
 which provides live data on earthquakes across the globe.  The server uses
 an Application Programmer Interface (API) that clients (our program) can
 request data on earthquakes detected in the last hour, day, or week.  The
