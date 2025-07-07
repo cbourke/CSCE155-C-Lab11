@@ -20,7 +20,9 @@ Student *createEmptyStudent();
 /**
  * Creates a Student struct with the given values
  */
-Student *createStudent(const char *firstName, const char *lastName, int nuid,
+Student *createStudent(const char *firstName,
+                       const char *lastName,
+                       int nuid,
                        const char *birthDate_str);
 
 /**
@@ -42,5 +44,3 @@ void printStudent(const Student *student);
  * Returns a string representation of the given student
  */
 char *studentToString(const Student *student);
-
-

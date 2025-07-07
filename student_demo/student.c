@@ -18,7 +18,7 @@ Student *createStudent(const char *firstName,
   Student *student = (Student *)malloc(sizeof(Student) * 1);
 
   //...and let the other function do all the work
-  initStudent(student, firstName, lastName, nuid, birthDate_str) {
+  initStudent(student, firstName, lastName, nuid, birthDate_str);
 
   return student;
 }
@@ -28,6 +28,7 @@ void initStudent(Student *student,
                  const char *lastName,
                  int nuid,
                  const char *birthDate_str) {
+
   student->firstName = (char *)malloc(sizeof(char) * (strlen(firstName) + 1));
   strcpy(student->firstName, firstName);
 
@@ -51,7 +52,7 @@ char *studentToString(const Student *student) {
   }
 
   // create a temporary buffer "large enough":
-  buffer[1000];
+  char buffer[1000];
 
   // format the student into the temporary buffer
   sprintf(buffer, "%s, %s (%08d, %4d-%02d-%02d)", student->lastName,
@@ -73,4 +74,3 @@ void printStudent(const Student *student) {
   free(str);
   return;
 }
-
