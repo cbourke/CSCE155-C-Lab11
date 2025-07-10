@@ -16,13 +16,13 @@ int main(int argc, char **argv) {
     if(argc == 1) {
         data = loadEarthquakeData(usgs_earthquake_url_week, &n);
     } else if(argc == 2) {
-        if( strcmp(argv[1], "hour") ) {
+        if( strcmp(argv[1], "hour") == 0 ) {
             data = loadEarthquakeData(usgs_earthquake_url_hour, &n);
-        } else if( strcmp(argv[1], "day") ) {
+        } else if( strcmp(argv[1], "day") == 0 ) {
             data = loadEarthquakeData(usgs_earthquake_url_day, &n);
-        } else if( strcmp(argv[1], "week") ) {
+        } else if( strcmp(argv[1], "week") == 0 ) {
             data = loadEarthquakeData(usgs_earthquake_url_week, &n);
-        } else if( strcmp(argv[1], "local") ) {
+        } else if( strcmp(argv[1], "local") == 0 ) {
             data = parseEarthquakeData(LOCAL_DATA_JSON, &n);
         }
     }
