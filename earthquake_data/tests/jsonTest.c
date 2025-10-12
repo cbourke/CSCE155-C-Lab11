@@ -7,7 +7,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../curl_utils.h"
+#include "../utils/utils.h"
+#include "../earthquake.h"
 
 int main() {
 

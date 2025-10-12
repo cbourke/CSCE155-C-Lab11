@@ -7,7 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../curl_utils.h"
+#include "../utils/utils.h"
+#include "../earthquake.h"
 
 int main(int argc, char **argv) {
   if (argc != 2) {

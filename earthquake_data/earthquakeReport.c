@@ -4,6 +4,7 @@
 
 #include "earthquake.h"
 #include "data/local_data.h"
+#include "utils/utils.h"
 
 const char *usgs_earthquake_url_hour = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
 const char *usgs_earthquake_url_day  = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";

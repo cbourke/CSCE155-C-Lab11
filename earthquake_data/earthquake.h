@@ -1,9 +1,11 @@
+#ifndef EARTHQUAKE_H
+#define EARTHQUAKE_H
 
 /**
  * TODO: provide documentation for your structure
  */
 typedef struct {
-  //TODO: implement
+  //TOOD: define your structure
 } EarthquakeData;
 
 
@@ -34,25 +36,6 @@ EarthquakeData *createEarthquakeData(
   double latitude,
   double longitude,
   double depth);
-
-/**
- * Loads earthquake data from the given <code>url</code> and returns
- * an array of size <code>n</code>.  Data is assumed to be in the USGS
- * GeoJSON Summary format (see
- * <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">here</a>
- * for details).
- *
- */
-EarthquakeData *loadEarthquakeData(const char *url, int *n);
-
-/**
- * Parses earthquake data from the given JSON string and returns
- * an array of size <code>n</code>.  Data is assumed to be in the USGS
- * GeoJSON Summary format (see
- * <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">here</a>
- * for details).
- */
-EarthquakeData *parseEarthquakeData(const char *json_data, int *n);
 
 /**
  * A function to construct a (human-readable) string representation
@@ -90,3 +73,5 @@ double airDistance(double originLatitude,
          double originLongitude,
          double destinationLatitude,
          double destinationLongitude);
+
+#endif /* EARTHQUAKE_H */
